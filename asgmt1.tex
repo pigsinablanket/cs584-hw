@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumitem}
+\usepackage[margin=1in]{geometry}
+
+\title{\bf Assignment 1 \\[2ex]
+\rm\normalsize Due: January 16, 2020}
+\date{}
+\author{}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+    \fbox{\fbox{\parbox{5.5in}{\centering
+        Your solutions must be typed (preferably typeset in \LaTeX ) and submitted as a hard-copy at the beginning of
+        class on the day its due.
+        \\
+
+        When asked to provide an algorithm you need to give well formatted pseudocode, a description of how your
+        code solves the problem, and a brief argument of its correctness.
+    }}}
+\end{center}
+
+\paragraph{Problem 1: Asymptotic Analysis Practice}
+\subparagraph{(a) [5 points]}
+Prove or disprove that $\log_k n \in O(\lg n)$ for any $k > 1$. (Note that $\lg$ refers to $\log_2$)
+\subparagraph{(b) [5 points]}
+The following recurrence relation solves to $O(n \lg^2 n)$. Prove this by substition. Do not use the Master method.
+\begin{align*}
+T(n) &= 2T\left( \frac n2 \right) + n \lg n \\
+T(1) &= 0
+\end{align*}
+\subparagraph{(c) [5 points]}
+Suppose that $f(n)$ and $g(n)$ are non-negative functions. Prove or disprove the following: if $f(n) \in O(g(n))$ then $2^{f(n)} \in O(2^{g(n)})$.
+
+
+\paragraph{Problem 2: Peak-finding}
+Given a set of real numbers stored in an array $A$ find the index of a {\em Peak}, where a {\em Peak} is defined as an
+element that is larger or equal to the both the elements on its sides. (Note: you only need to return {\em a} peak, not
+the highest one.)\\
+
+Example array:
+                {\tt
+                \begin{tabular}{|*{9}{r|}}
+                    \hline
+                    -2 & \ 6 & -1 & \ 4 & \ 9 & -5 & \ 5  \\
+                    \hline
+                \end{tabular}
+                }
+
+Assuming the array one based it has peaks at indices $\{2,5,7 \}$.
+
+\subparagraph{(a) [5 points]}
+Give a linear time algorithm to solve this problem. (This should be obvious)
+\subparagraph{(b) [10 points]}
+Give a $O(\log n)$ time algorithm to solve this problem.
+\subparagraph{(c) [10 points]}
+What if instead of a simple array you are given a square matrix, where a {\em Peak} is now defined as an element larger
+or equal to its four neighbours. Give a $O(n \log n)$ solution to this variant of the problem.
+
+\end{document}
