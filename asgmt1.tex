@@ -24,6 +24,21 @@
 \paragraph{Problem 1: Asymptotic Analysis Practice}
 \subparagraph{(a) [5 points]}
 Prove or disprove that $\log_k n \in O(\lg n)$ for any $k > 1$. (Note that $\lg$ refers to $\log_2$)
+\\
+\\
+Another way of stating $\log_k n \in O(\lg n)$ for any $k > 1$ is:
+\begin{align*}
+\log_k n &\leq \lg n \text{ for any }  k > 1 \\
+\frac{\lg n}{\lg k} &\leq \frac{\lg n}{\lg 2}
+\end{align*}
+Since $\lg 2 = 1$, \\
+\begin{align*}
+\frac{\lg n}{\lg k} &\leq \lg n \\ 
+\left(\frac{1}{\lg k}\right)\lg n &\leq \lg n \\
+\left(\frac{1}{\lg k}\right) &\leq 1 \text{ for any } k > 1 \\
+\end{align*}
+
+
 \subparagraph{(b) [5 points]}
 The following recurrence relation solves to $O(n \lg^2 n)$. Prove this by substition. Do not use the Master method.
 \begin{align*}
