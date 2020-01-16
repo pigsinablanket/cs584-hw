@@ -1,0 +1,17 @@
+\subsection*{Solution}
+\begin{align*}
+    T(n) &= 2T\left( \frac n2 \right) + n \lg n \\
+    T(\frac{n}{2}) &= 2[2T\left( \frac{n}{4} \right) + \frac{n}{2} \lg \frac{n}{2}] + n \lg n \\
+    T(n) &= 2^{k}T\left( \frac{n}{2^{k}} \right) + k \left(n \lg n\right) \\
+    \text{Assume that:} \\
+    T\left(\frac{n}{k}\right) &= T\left(1\right) \\
+    \text{That implies:} \\
+    \frac{n}{2^{k}} &= 1 \\
+    n &= 2^{k} \\
+    k &= \lg n \\
+    \text{Substituting } k = \lg n \\
+    T(n) &= 2^{\lg n}T\left( \frac{n}{2^{\lg n}} \right) + \left(\lg n\right) \left(n \lg n\right) \\
+    \text{Simplifying...} \\
+    T(n) &= nT\left(1\right) + n \lg^{2} n \\
+         &= O(n \lg^{2} n)
+\end{align*}
