@@ -1,0 +1,13 @@
+\subsection*{Solution}
+Similar to Problem 1a, another way of stating $f(n) \in O(g(n))$ is: 
+\begin{align*}
+  f(n) &\le g(n) \\
+  \intertext{To prove that $2^{f(n)} \in O(2^{g(n)})$, then, one must only state in the same way that:} \\
+  2^{f(n)} &\le 2^{g(n)} \\
+  \intertext{Taking the lg of each side, the inequality holds,} \\
+  \lg\left(2^{f(n)}\right) &\le \lg\left(2^{g(n)}\right) \\
+  f(n) &\le g(n) \\
+  \intertext{Thus,} \\
+  2^{f(n)} &\in O(2^{g(n)}) \\
+\end{align*}
+
