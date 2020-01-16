@@ -1,0 +1,25 @@
+To solve this problem, the algorithm starts in the middle of the array. It then finds the biggest number between the left, right, and the middle. If the middle is the biggest, then that is the peak. Otherwise, it selects the middle towards the side of the bigger number. The process is repeated over again until peak is found.
+This algorithm is O(logn) because each iteration, the possible selection of numbers is halved. Therefore logarithmic.
+
+\begin{verbatim}
+  peakFinding(xs) {
+    let middle = len(xs) / 2
+    let left   = 0
+    let right  = len(xs)-1
+    while(true) {
+      if(xs[middle-1] > xs[middle+1] > xs) {
+        old_middle=middle
+        middle=(left + right) / 2
+        right=old_middle
+      }
+      elseif(xs[middle+1] > xs[middle-1] > xs) {
+        old_middle=middle
+        middle=(left + right) / 2
+        left=old_middle
+      }
+      else {
+        return middle
+      }
+    }
+  }
+\end{verbatim}

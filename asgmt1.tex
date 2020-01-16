@@ -33,7 +33,7 @@ Another way of stating $\log_k n \in O(\lg n)$ for any $k > 1$ is:
 \end{align*}
 Since $\lg 2 = 1$, \\
 \begin{align*}
-\frac{\lg n}{\lg k} &\leq \lg n \\ 
+\frac{\lg n}{\lg k} &\leq \lg n \\
 \left(\frac{1}{\lg k}\right)\lg n &\leq \lg n \\
 \left(\frac{1}{\lg k}\right) &\leq 1 \text{ for any } k > 1 \\
 \end{align*}
@@ -69,8 +69,13 @@ Assuming the array one based it has peaks at indices $\{2,5,7 \}$.
 Give a linear time algorithm to solve this problem. (This should be obvious)
 \subparagraph{(b) [10 points]}
 Give a $O(\log n)$ time algorithm to solve this problem.
+
+\input{solutions/hw12b.tex}
+
 \subparagraph{(c) [10 points]}
 What if instead of a simple array you are given a square matrix, where a {\em Peak} is now defined as an element larger
 or equal to its four neighbours. Give a $O(n \log n)$ solution to this variant of the problem.
+
+\input{solutions/hw12c2c.tex}
 
 \end{document}
