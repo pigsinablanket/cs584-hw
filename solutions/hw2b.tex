@@ -1,5 +1,6 @@
+\subsection*{Solution}
 To solve this problem, the algorithm starts in the middle of the array. It then finds the biggest number between the left, right, and the middle. If the middle is the biggest, then that is the peak. Otherwise, it selects the middle towards the side of the bigger number. The process is repeated over again until peak is found.
-This algorithm is O(logn) because each iteration, the possible selection of numbers is halved. Therefore logarithmic.
+This algorithm is $O(\log n)$ because each iteration, the possible selection of numbers is halved. Therefore logarithmic.
 
 \begin{verbatim}
   peakFinding(xs) {

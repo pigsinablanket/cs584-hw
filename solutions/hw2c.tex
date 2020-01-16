@@ -1,10 +1,11 @@
-The maximum value will always be a peak. In this problem, the square matrix can be represented as a one dimensional array. The data is sorted and a maximum could be retrieved in constant time. Once the maximum is found, the index can be found in constant time by mapping the one dimensional index back to two dimensional. Since the sorting algorithn used is O(nlogn) and the other operations are all in constant time, the overavll complexity is O(nlogn).
+\subsection*{Solution}
+The maximum value will always be a peak. In this problem, the square matrix can be represented as a one dimensional array. The data is sorted and a maximum could be retrieved in constant time. Once the maximum is found, the index can be found in constant time by mapping the one-dimensional index back to two-dimensional. Since the sorting algorithm used is $O(n \log n)$ and the other operations are all in constant time, the overall complexity is $O(n \log n)$.
 
 \begin{verbatim}
   2dPeakFinding(xs) {
     let m = square matrix dimension
     let sortedXs = mergeSort(xs)
-    max(sortedXs)
+    let max = max(sortedXs)
     return (indexOf(max) / m, indexOf(max) % m)  # (x,y)
 }
 \end{verbatim}
