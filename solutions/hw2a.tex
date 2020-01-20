@@ -1,0 +1,12 @@
+\subsection*{Solution}
+The linear time solution is to iterate through the array, and at each element compare the left, right, and middle element. If the middle element is the biggest, then that is the peak. This is a linear time solution because every element is only visited once and a constant time comparison is done to see if the middle is the largest.
+
+\begin{verbatim}
+  peakFinding(xs) {
+    for(int i=0; i<len(xs); i++) {
+      if(xs[i-1] < xs[i+1] < xs[i]) {
+        return i
+      }
+    }
+  }
+\end{verbatim}
