@@ -1,5 +1,5 @@
 \subsection*{Solution}
-
+\subsubsection*{Pseudocode}
 \begin{verbatim}
   findMissingNumberA(A) {
     lenA = len(A)
@@ -19,3 +19,9 @@
     return (sum - runningTotal)
   }
 \end{verbatim}
+
+\subsubsection*{Complexity}
+Because this algorithm has a single walk of the elements of A, it's complexity is $O(n)$-time, and because we know the closed-form solution is $(n)(n+1)/2$, we know this can be represented in $\lg(n)*\lg(n+1)-1$ bits, so it has complexity of $O(\lg n)$-space.
+
+\subsubsection*{Correctness}
+The algorithm is intuitively correct because we know what the sum of all elements $1..n$ would be, using the closed-form solution, we know that our list $A$ contains every number in $1..n$ except one, and we know that there are no duplicates in A. Therefore, the difference between the closed-form solution and the sum of counting all the elements in $A$ would have to be the size of the single, missing element.
