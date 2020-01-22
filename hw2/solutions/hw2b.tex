@@ -1,5 +1,5 @@
 \subsection*{Solution}
-
+\subsubsection*{Pseudocode}
 \begin{verbatim}
   findMissingNumberB(A) {
     // pre-compute some useful re-used values
@@ -14,7 +14,7 @@
       // check each bit for each element
       for(int j=0; j < lgA; j++) {
         // xor this element's bit w/ a running 'sum' of the previous xor'ed bits
-        prevResult[j] ^= GetBinaryDigit(A[i], j) 
+        prevResult[j] ^= GetBinaryDigit(A[i], j)
       }
     }
 
@@ -28,3 +28,15 @@
     return result;
   }
 \end{verbatim}
+
+\subsubsection*{Complexity}
+Like in part 2a, this algorithm has a single walk of the elements of A, and it doesn't matter that we also walk across the bits of each element, so it's complexity is $O(n)$-time. We pre-allocate our result storage as $\lg(n) $elements, so it has complexity of $O(\lg n)$-space.
+
+\subsubsection*{Correctness}
+Because we're assuming that $n=2^{m}$, we can make further guarantees of what a full set of numbers from $1..n$ would look like, represented in binary. We know that any number in that range can be represented in $\lg(n)$ bits, and that \underline{every} bit-pattern should be represented within those $\lg(n)$ bits.
+
+For every binary digit, there should be an even number of occurances of 1's in a fully-represented bit-pattern that spans the space. Using xor allows us to track the even/odd status of each binary digit. In a fully-represented bit-space made up of $n$ bits, xor'ing every number with the other will leave you with all zero bits in your reduction. In our array $A$, the only digits that won't have 0's in their position are digits that were not fully represented in the bit-pattern, i.e. were missing from the array.
+
+To show this further, if someone were to xor the found missing number with the reduction variable, every digit would be 0, as at that point all bit-patterns within those $\lg(n)$ bits will have been represented.
+
+It's important to leave the caveat that this is only true if $n=2^{n}$ and we are working with binary digits.
