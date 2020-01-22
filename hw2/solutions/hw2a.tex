@@ -1,1 +1,21 @@
 \subsection*{Solution}
+
+\begin{verbatim}
+  findMissingNumberA(A) {
+    lenA = len(A)
+    //pre-compute sum of 1..N using closed-form solution
+    sum = ((lenA)*(lenA+1))/2
+
+    runningTotal = 0
+
+    // loop through every element of A, 
+    // keeping a running total of everything in the array
+    for(int i=0; i < aLen; i++) {
+      runningTotal += A[i];
+    }
+
+    // The difference betweeen sum and runningTotal is
+    // the size of our missing element
+    return (sum - runningTotal)
+  }
+\end{verbatim}

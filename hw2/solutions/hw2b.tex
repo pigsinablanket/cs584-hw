@@ -1,1 +1,30 @@
 \subsection*{Solution}
+
+\begin{verbatim}
+  findMissingNumberB(A) {
+    // pre-compute some useful re-used values
+    aLen = len(A)
+    lgA = lg(aLen)
+
+    // create array to hold intermediate results
+    prevResult = new Array(lgA)
+
+    // loop through every element of A
+    for(int i=0; i < aLen; i++) {
+      // check each bit for each element
+      for(int j=0; j < lgA; j++) {
+        // xor this element's bit w/ a running 'sum' of the previous xor'ed bits
+        prevResult[j] ^= GetBinaryDigit(A[i], j) 
+      }
+    }
+
+    // now combine the stored bits back together into a result
+    result=0;
+    for (int j=lgA; j > 0; j--) {
+      // build the resultant integer from it's bits
+      result <<= prevResult[j];
+    }
+    // ... and return it
+    return result;
+  }
+\end{verbatim}
