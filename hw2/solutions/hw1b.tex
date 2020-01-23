@@ -1,1 +1,3 @@
 \subsection*{Solution}
+
+The input that Jarvis March will perform significantly better than Graham's scan is when most of the points are not on the convex hull. This is because the best case scenario for Graham's scan is $O(nlog n)$ due to needing to sort the list first regardless of the input. For Jarvis March, the best case scenario is when there is minimal points on the hull. With fewer points on the hull, Jarvis March will examine every point once for every point on the hull, effectively having a time complexity of $O(hn)$ where h is the number of points on the hull. Thus, with a small h value, the time complexity is essentially $O(n)$.

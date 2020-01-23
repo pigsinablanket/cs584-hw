@@ -1,1 +1,34 @@
 \subsection*{Solution}
+\subsubsection*{Pseudocode}
+\begin{verbatim}
+  jarvisMarch(xs) {
+    p = minOfXAxis(xs)
+    convexHull = [p]
+
+    forever:
+      q = xs[0]
+      for i in xs:
+        if orientation(p, i, q) is conterclockwise:
+           q = i
+      p = q
+      convexHull = cons(p, convexHull)
+
+      if last(convexHull) = p:
+        break
+
+    return convexHull
+  }
+\end{verbatim}
+
+\subsubsection*{Description}
+The Jarvis March algorithm works by first finding the element with the minimum x coordinate since it is guarenteed to be on the convex hull. In an infinite loop, we select a random point, q, trying to find the next point on the convex hull. Then, iterate over the set of points, comparing the random point selected(q), the previous point that was found on the convex hull(p) and every other point within the set of points. During each iteration, update q is the most clockwise point. This will set q to the next greatest clockwise point from any other point in the set. We set p to the new found point on the convex, update the list of convex points, and repeat until we find the leftmost x axis element again.
+
+\subsubsection*{Effeciency}
+
+The best case efficiency
+
+The worse case complexity is $O(n^2)$-time and this case occurs when all the points are on the hull. This is becasue in order to find the element on the convex hull, the points on the hull must be compared to every other element.
+
+\subsubsection*{Citation}
+
+ADD CITATION
