@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumitem,clrscode3e}
+%\usepackage[margin=1in]{geometry}
+
+\title{\bf Assignment 3 \\[2ex]
+\rm\normalsize Due: February 4, 2020}
+\date{}
+\author{
+  Kanyid, Bradon\\
+  \texttt{bradon.kanyid@pdx.edu}
+  \and
+  Reimer, Daniel\\
+  \texttt{daniel.reimer@pdx.edu}
+}
+
+\begin{document}
+\maketitle
+
+\paragraph{Problem 1: Lower Bounds [10 points]}
+Prove that any comparison-based algorithm for constructing a binary search tree from an arbitrary list of $n$ elements takes $\Omega(n \log n)$ time in the worst case. (Hint: Consider how to reduce the sorting problem to performing a set of operations on a binary search tree. In other words, show that if a faster algorithm existed for constructing a binary search tree then you would violate the $\Omega(n \log n)$ comparison-based sorting lower bound.)
+\input{solutions/hw1}
+
+\paragraph{Problem 2: Median of Medians}
+The 'Median-of-medians' selection algorithm presented in class divides the input into groups of 5. Using a group of odd size helps keep things a little simpler (because otherwise the group medians are messier to define), but why the choice of 5?
+\subparagraph{(a) [10 points]}
+Show that the same argument for linear worst-case time complexity works if we use groups of size 7 instead.
+\input{solutions/hw2a}
+
+\subparagraph{(b) [10 points]}
+Show that groups of size 3 results in superlinear time complexity.
+\input{solutions/hw2b}
+
+\end{document}
