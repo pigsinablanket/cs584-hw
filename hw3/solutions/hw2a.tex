@@ -1,1 +1,12 @@
 \subsection*{Solution}
+
+We divide the elements with a recursive call on $n/7$. We are able to partition the groups with 4/7 items smaller than the pivot (this is $(1/2)*4*(n/7) == 4n/14$ groups), and groups with 4/7 items larger than the pivot (this is also $(1/2)*4*(n/7) == 4n/14$). These are the known elements we can eliminate, which leaves us with $5n/7$ elements to recurse on and further filter. 
+
+\begin{align*}
+T(n) &\leq an + T(\frac{n}{7}) + T(\frac{5n}{7}) \\
+     &= an * \sum_{i=0}^{\infty} \frac{6n}{7} \\
+     &= an * \frac{1}{(1 - (\frac{6}{7}))} \\
+     &= 7an \in O(n)
+\end{align*}
+
+With splitting into groups of 7, we get a lower constant but the overall performance is still $O(n)$

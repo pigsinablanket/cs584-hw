@@ -1,1 +1,12 @@
 \subsection*{Solution}
+
+We divide the elements with a recursive call on $n/3$. We are able to partition the groups with 2/3 items smaller than the pivot (this is $(1/2)*2*(n/3) == 2n/6$ groups), and groups with 2/3 items larger than the pivot (this is also $(1/2)*2*(n/3) == 2n/6$). These are the known elements we can eliminate, which leaves us with $2n/3$ elements to recurse on and further filter. 
+
+\begin{align*}
+T(n) &\leq an + T(\frac{n}{3}) + T(\frac{2n}{3}) \\
+     &= an * \sum_{i=0}^{\infty} \frac{3n}{3} \\
+     &= an * n \\
+     &= an^{2} \in O(n^{2})
+\end{align*}
+
+Because we are recursing on the tree with $n/3$ groups and $2/3n$ groups, the combined recursion ends up looking at $n$ total elements, i.e.\ the recursion is not reducing the problem.
