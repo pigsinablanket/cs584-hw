@@ -1,1 +1,7 @@
 \subsection*{Solution}
+
+We don't know how long any possible comparison-based BST construction algorithm would take. However, we do know that if we constructed a BST, we could reduce sorting to an in-order traversal of a BST. We also know that in-order traveral has $O(n)$-time complexity. 
+
+Assume that we could efficiently construct a BST in $o(n \lg n)$-time. Since sorting an unsorted list reduces to a BST construction based on that unsorted list, followed by in-order traversal, and we know that in-order traversal is $O(n)$-time complexity, then the complexity of sorting an unordered list would be $o(n \lg n)$. 
+
+However, this is a contradiction because we know sorting has $\Omega(n \lg n)$-time complexity. Therefore BST construction must also have $\Omega(n \lg n)$-time complexity.
