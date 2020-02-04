@@ -1,1 +1,10 @@
 \subsection*{Solution}
+
+We devide the elements with a recursive call on n/7 and add to the recursive call on the items larger than the pivot which is 5n/7.
+
+T(n) <= an + T(n/7) + T(5n/7)
+      = an * sum(i=0, inf, (6n/7))
+      = an * (1/(1- (6/7)))
+      = 7an  e O(n)
+
+With splitting into groups of 7, we get a lower constant but the overall performance is still O(n)

@@ -1,1 +1,11 @@
 \subsection*{Solution}
+
+We devide the elements with a recursive call on 2/3 and add to the recursive call on the items larger than the pivot which is 2/3n.
+
+t(n) <= an + T(n/3) + T(2/3 n)
+     =  an sum(i=0, inf, (3/3)^i)
+     =  an * n
+     =  an^2
+     =  e O(n^2)
+
+Because we are recurrsing on the tree with n/3 and 2/3n, the combined recursion ends up looking at n total values.
