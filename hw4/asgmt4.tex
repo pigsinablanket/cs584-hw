@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumitem,clrscode3e}
+%\usepackage[margin=1in]{geometry}
+
+\title{\bf Assignment 4 \\[2ex]
+\rm\normalsize Due: February 18, 2020}
+\date{}
+\author{
+  Kanyid, Bradon\\
+  \texttt{bradon.kanyid@pdx.edu}
+  \and
+  Reimer, Daniel\\
+  \texttt{daniel.reimer@pdx.edu}
+}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+    \fbox{\fbox{\parbox{\textwidth}{\centering
+    Your solutions must be typed (preferably typeset in \LaTeX ) and submitted as a hard-copy at the beginning of
+    class on the day its due.
+    \\
+
+    When asked to provide an algorithm you need to give well formatted pseudocode, a description of how your code solves the problem, and a brief argument of its correctness.
+    }}}
+\end{center}
+
+\paragraph{Problem 1: Maximum Subarray Sum}
+The Maximum Subarray Sum problem is the task of finding the contiguous subarray with largest sum in a given array of integers.
+Each number in the array could be positive, negative, or zero. For example: Given the array $[-2, 1, -3, 4, -1, 2, 1, -5, 4]$
+the solution would be $[4, -1, 2, 1]$ with a sum of 6.
+
+\subparagraph{(a) [5 points]}
+Give a brute force solution for this problem with complexity of $O(n^2)$.
+\input{solutions/hw1a}
+
+\subparagraph{(b) [10 points]}
+Give a divide and conquer solution for this problem with complexity $O(n \log n)$.
+\input{solutions/hw1b}
+
+\subparagraph{(c) [10 points]}
+Give a dynamic programming solution for this problem with complexity $O(n)$.
+\input{solutions/hw1c}
+
+\paragraph{Problem 2: Restaurant Placement}
+A new restaurant chain is opening and you have been given the task of selecting the restaurant locations with the
+goal of maximizing their total profit.\\
+
+The street network is described as an undirected graph $G=(V,E)$, where the
+potential restaurant sites are the vertices of the graph. Each vertex $v$ has a non-negative integer value $p_v$,
+which describes the potential {\em profit} of site $v$. Two restaurants cannot be built on adjacent vertices.
+You are supposed to design an algorithm that outputs the chosen set $U \subseteq V$ of sites that maximizes the total
+profit $\sum_{v \in V} p_v$.\\
+
+For parts (a)-(c), suppose that the street network $G$ is {\em acyclic}, i.e. a tree.
+
+\subparagraph{(a) [5 points]}
+Consider the following {\em greedy} restaurant placement algorithm. Choose the highest profit vertex $v_0$ in the
+tree, breaking ties according to some ordering on vertex names, and put it into $U$. Remove $v_0$ and all of its
+neighbors from $G$. Repeat until no vertices remain. Give a counterexample to show that this algorithm does not
+always give a restaurant placement with maximal profit.
+\input{solutions/hw2a}
+
+\subparagraph{(b) [10 points]}
+Give an efficient algorithm to determine a placement with maximum profit.
+\input{solutions/hw2b}
+
+\subparagraph{(c) [5 points]}
+Suppose that, in the absence of good data, the restaurant chain decides that all sites are equally good. The goal
+therefore is to simply find the placement with the maximum number of locations. Give a simple greedy algorithm for
+this case and argue its correctness.
+\input{solutions/hw2c}
+
+\subparagraph{(d) [5 points]}
+Suppose that the graph is arbitrary and not necessarily {\em acyclic}. Give the fastest correct algorithm you can
+for solving the problem.
+\input{solutions/hw2d}
+
+\end{document}
