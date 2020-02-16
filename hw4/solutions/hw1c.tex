@@ -1,1 +1,7 @@
 \subsection*{Solution}
+
+curr = 0
+max = 0
+for x in xs
+  curr = max (0, curr + x)
+  max  = max (curr, max)
