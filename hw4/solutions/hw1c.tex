@@ -2,16 +2,20 @@
 
 \subsubsection*{Pseudocode}
 \begin{verbatim}
-curr = 0
-max = 0
-for x in xs
-  curr = max (0, curr + x)
-  max  = max (curr, max)
+maxSubarray(xs):
+  curr = xs[0]
+  max = xs[0]
+
+  for x in xs
+    curr = max (x, curr + x)
+    max  = max (curr, max)
+
+  return max
 \end{verbatim}
 
 \subsubsection*{Description}
-This code works by iterating over the list, continuously summing each element and taking the max of the all time max with the current max. The current max finds the max by comparing against zero so this does mean that the smallest potential summed subarray is 0. This is reasoable since the trivial subarray, [], would have a sum of 0.
+This code works by iterating over the list, continuously summing each element and taking the max of the all-time max with the current max. The current max finds the max by comparing the current element against the partial sum with that element added. If the current sum goes below the current element, it effectively makes that element the next possible start of the subarray, by setting the current sum to just that element. $max$ tracks the largest subarray seen over the entire array. 
 
 \subsubsection*{Efficiency}
 
-The overall effeciency is O(n) since there is a single iteration over the list and the operations inside the iteration is finding the max of two values and summing two values which are both constant time operations.
+The overall efficiency is $O(n)$ since there is a single iteration over the list and the operations inside the iteration is finding the max of two values and summing two values which are both constant time operations.
