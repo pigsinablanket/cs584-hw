@@ -1,3 +1,10 @@
 \subsection*{Solution}
 
-Calculate all subsets, remove subsets that contain restaurants on adjacent vertices, compute total profit, take max
+The following algorithm is the fastest we could determine:
+
+1) Calculate every subset of the graph
+2) Remove subsets that contain restaurants on adjacent vertices
+3) Compute total profit for each remaining subset
+4) Take the max value from these subsets
+
+Further analysis shows that this problem is a form of the Maximum Independent Set problem, and thus is NP-Hard. Thus, there is no known polynomial-time solution.
