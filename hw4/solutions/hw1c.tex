@@ -10,5 +10,8 @@ for x in xs
 \end{verbatim}
 
 \subsubsection*{Description}
+This code works by iterating over the list, continuously summing each element and taking the max of the all time max with the current max. The current max finds the max by comparing against zero so this does mean that the smallest potential summed subarray is 0. This is reasoable since the trivial subarray, [], would have a sum of 0.
 
 \subsubsection*{Efficiency}
+
+The overall effeciency is O(n) since there is a single iteration over the list and the operations inside the iteration is finding the max of two values and summing two values which are both constant time operations.
