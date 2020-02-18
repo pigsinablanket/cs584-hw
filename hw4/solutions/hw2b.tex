@@ -1,1 +1,21 @@
 \subsection*{Solution}
+For each node, we need to evaluate the profit of keeping it (let's call this the K function) and the effect it has downstream (forcing others to be dropped), which we will call the D function.
+
+For a leaf node, each are defined pretty straightforwardly:
+\begin{align*}
+K(v) &= P_v \\
+D(v) &= 0
+\end{align*}
+
+For parent nodes, the functions are more complex:
+\begin{align*}
+   K(v) &= P_v + \sum_{c \in v}^{} D(c) \\
+   D(v) &= 0 + \sum_{c \in v}^{} \max({K(c)},{D(c)}) \\
+  \text{where }c &= v\text{'s children} \\
+\end{align*}
+
+Because the K and D functions are defined in terms of only its children, we can use dynamic programming to compute the children first, by doing a post-order traversal, then using those results the next layer up. In order to do a post-order traversal, we first need to choose a root node, but since the graph is acyclic, it is safe to choose any node as the root.
+
+Once you've calculated these results recursively from the leaves up to the root of the tree (via the aformentioned post-order traversal), the final evaluation of the root node's K and D functions will determine if there's more profit when we keep the root and drop it's children, or if there's more profit in dropping the root and keeping it's children. Take the max of K and D, and whichever is higher, determines the entire graph.
+
+The main work being done is the post-order traversal, which has $O(n)$-time complexity.

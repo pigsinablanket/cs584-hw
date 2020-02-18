@@ -22,4 +22,4 @@ maxSubarray(xs):
 This code solves the problem by first recursively finding the subarrays of a given array. Then, it calculates the sum of each subarray and takes the max. This works because given every single possible subarray, we can brute force test all the subarrays by finding the sum and taking the highest value found.
 
 \subsubsection*{Efficiency}
-Generating the subarrays is done in O(n^2) since there is a nested recursive call where both calls go over the entire array. To find the max of the subarrays is done in O(n^2) as the subarray list now contains n^2 number of elements and the sum is mapped to each subarray. The max is then found in linear time. Therefore the overall effeciency O(n^2).
+Generating the subarrays is done in $O(n^2)$ since there is a nested recursive call where both calls go over the entire array. To find the max of the subarrays is done in $O(n^2)$ as the subarray list now contains $n^2$ number of elements and the sum is mapped to each subarray. The max is then found in linear time. Therefore the overall effeciency $O(n^2)$.
