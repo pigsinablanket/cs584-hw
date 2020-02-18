@@ -1,1 +1,9 @@
 \subsection*{Solution}
+
+Since we are maximizing the total number of restaurants, what we want to accomplish is to take all the leaves, removing parents as necessary. To do so, we would, similar to 2b, do a post-order traversal of the graph, creating a tree from it by picking any node as the root. Again, this is ok to do because of the acyclic stipulation on the graph.
+
+Once we know we are at a leaf node, we mark it as a node to keep, and remove its parent, in order to meet the condition that there are no adjacent restaurants.
+
+We can argue that this is correct because of the relationship between parent nodes and child nodes. Any child node has at most one parent. Any parent in the graph (now tree) can have N children, with a minimum of one. If we were to choose a parent node initially, we would be removing at least one child node to select that parent. In many cases, it would be more than one child. We are always in the position that we could substitute in one of those children in the parent node's place, and be in the same situation, without invalidating that child's siblings. That means choosing the child node is always at least as good as a parent node, and many times it is better.
+
+Thus, this shows that starting by adding all the children to the solution set, and invalidating backwards, will bear the best result.
