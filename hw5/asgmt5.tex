@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumitem,clrscode3e}
+\usepackage[margin=1in]{geometry}
+
+\title{\bf Assignment 5 \\[2ex]
+\rm\normalsize Due: February 25, 2019}
+\date{}
+\author{
+  Kanyid, Bradon\\
+  \texttt{bradon.kanyid@pdx.edu}
+  \and
+  Reimer, Daniel\\
+  \texttt{daniel.reimer@pdx.edu}
+}
+\begin{document}
+\maketitle
+
+\begin{center}
+    \fbox{\fbox{\parbox{\textwidth}{\centering
+    Your solutions must be typed (preferably typeset in \LaTeX ) and submitted as a hard-copy at the beginning of
+    class on the day its due.
+    \\
+
+    When asked to provide an algorithm you need to give well formatted pseudocode, a description of how your
+    code solves the problem, and a brief argument of its correctness.
+    }}}
+\end{center}
+
+\paragraph{Problem 1: Highway Safety [10 points]}
+As is well-known, America’s highway infrastructure is crumbling. Yet travel must continue.
+Suppose you are given a map of U.S. cities and roads connecting them that shows, for every road
+segment, the probability of traveling down that segment {\em safely}, i.e. without destroying your axle
+in a pothole, falling into a river due to a broken bridge, etc. Design and analyze an algorithm to
+determine the safest route from Portland to your preferred summer vacation spot.
+
+\paragraph{}
+Stated more formally, suppose you are given a directed graph $G = (V,E)$, where every edge $e$ has an independent
+safety probability $p(e)$. The safety of a path is the product of the safety probabilities
+of its edges. Design and analyze an algorithm to determine the safest path from a given start vertex
+$s$ to a given target vertex $t$.
+
+\input{solutions/hw1}
+
+\paragraph{Problem 2: MST}
+The {\em cut property} makes it possible to build minimum
+spanning trees greedily, starting from an empty graph and adding one edge at a time. A different approach
+is to start with the original graph and remove edges greedily, one at a time, until an MST remains. A
+scheme of this second type can be justified by the following property.
+\begin{quote}
+Pick any cycle in the graph, and let $e$ be the heaviest edge in that cycle. Then there is a
+minimum spanning tree that does not contain $e$.
+\end{quote}
+\subparagraph{(a) [5 points]}
+Prove this {\em cycle property}.
+
+\input{solutions/hw2a}
+
+\subparagraph{(b) [5 points]}
+Use the property to justify the following MST algorithm. The input is an undirected graph
+$G = (V, E)$ with edge weights $\{ w_e \}$.
+
+\begin{codebox}
+\li sort the edges according to their weights
+\li \For each edge $e \in E$, in decreasing order of $w_e$
+    \Then
+    \li \If $e$ is part of a cycle of $G$
+        \Then
+        \li $G = G - e$ (that is, remove $e$ from $G$)
+        \End
+    \End
+\li \Return G
+\end{codebox}
+
+\input{solutions/hw2b}
+
+\subparagraph{(c) [5 points]}
+On each iteration, the algorithm must check whether there is a cycle containing a specific edge $e$.
+Give a linear-time algorithm for this task, and justify its correctness.
+
+\input{solutions/hw2c}
+
+\subparagraph{(d) [5 points]}
+What is the overall time complexity of this algorithm, in terms of $|E|$? Explain your answer.
+
+\input{solutions/hw2d}
+
+\end{document}
