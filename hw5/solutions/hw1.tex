@@ -1,12 +1,51 @@
 \subsection*{Solution}
 
-This problem is a modification of djikstra's algorithm...
+This problem is a modification of Dijkstra's algorithm. Instead of minimizing distance, though, we are maximizing safety probability. The rest of the algorithm is basically untouched, except we need to multiply our independent safety probabilities together to build our overall safety probability.
 
-Pseudocode:
+\subsubsection*{Pseudocode}
+\begin{verbatim}
+def calculateSafety(G, start, target):
 
-<insert modified pseudocode here>
+  Q = new Set()
 
-Analysis:
+  for each vertex v in G:
+    safety[v] = -INFINITY
+    prev[v] = UNDEFINED
+    add v to Q
 
-This matches djikstra's analysis...
+  // the safest drive is one you never take...
+  safety[start] = 1 
+  
+  while Q is not empty:
+    u = vertex in Q with max safety[u]
 
+    remove u from Q
+
+    // we can end early if we've reached the target
+    if u == target:
+      return safety[], prev[]
+
+    for each neighbor v still in Q of u:
+      // calculate potential new path safety 
+      alt = safety[u] * p(u, v)
+      if alt > safety[v]:
+        safety[v] = alt
+        prev[v] = u
+
+  return safety[], prev[]
+
+def safestPath(G, start, target):
+  safety, prev = calculateSafety(G, start, target)
+
+  S = new Sequence()
+  u = target
+  if prev[u] is defined or u == source:
+    // build up path from target back to start
+    while u is defined:
+      prepend S with u
+      u = prev[u]
+\end{verbatim}
+
+\subsubsection*{Analysis}
+
+Djikstra's algorithm is quite clever. <I don't know what else to write here>
