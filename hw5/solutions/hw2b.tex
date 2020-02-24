@@ -1,1 +1,3 @@
 \subsection*{Solution}
+
+When you sort all the edges and traverse over the list in decreasing order, detecting an edge that is part of a cycle will be the heaviest edge in that cycle since no other edges have been reached yet. The property states that theheaviest edge from the cycle is removed to get an MST, and the following MST algorithm also removes the heaviest edge from the cycle.
