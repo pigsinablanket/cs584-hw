@@ -1,1 +1,9 @@
 \subsection*{Solution}
+
+Assume for contradiction that their is a minimum spanning tree $T$ that contains $e$.
+
+We know that trees do not contain cycles and therefore there is some edge $e'$ in a cycle that is not in $T$.
+
+$e$ is the heaviest edge in the cycle, so $weight(e') < weight(e)$.
+
+If $e' /= e$, then we can swap e for e' and get a smaller mminimum spanning tree.
