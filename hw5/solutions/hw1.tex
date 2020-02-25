@@ -1,1 +1,72 @@
 \subsection*{Solution}
+
+This problem is a modification of Dijkstra's algorithm. Instead of minimizing distance, though, we are maximizing safety probability. The rest of the algorithm is basically untouched, except we need to multiply our independent safety probabilities together to build our overall safety probability.
+
+\subsubsection*{Analysis}
+
+Since this is a variation on Djikstra's, it follows that the complexity analysis follows Djikstra as well. The worst-case time-complexity is $O(V^2)$, for our simple implementation below. There are optimizations that can be done using a Fibonacci heap or binary heap, which can reduce the complexity to $O(|E| + |V| \log |V|)$
+
+\subsubsection*{Pseudocode}
+\begin{codebox}
+\li def calculateSafety(G, start, target):
+\Then
+  \li  Q = new Set()
+
+  \li
+  \li \For each vertex v in G:
+  \Then
+    \li  safety[v] = -INFINITY
+    \li  prev[v] = UNDEFINED
+    \li  add v to Q
+  \End
+
+  \li
+  \li // the safest drive is one you never take
+  \li safety[start] = 1 
+  
+  \li
+  \li \While Q is not empty:
+  \Then
+    \li u = vertex in Q with max safety[u]
+
+    \li remove u from Q
+
+    \li // we can end early if we've reached the target
+    \li \If u == target:
+    \Then
+      \li return safety[], prev[]
+    \End
+
+    \li \For each neighbor v still in Q of u:
+    \Then
+      \li // calculate potential new path safety 
+      \li alt = safety[u] * p(u, v)
+      \li \If alt $>$ safety[v]:
+      \Then
+        \li safety[v] = alt
+        \li prev[v] = u
+      \End
+    \End  
+  \End
+
+  \li return safety[], prev[]
+\End
+\li 
+
+\li def safestPath(G, start, target):
+\Then
+  \li safety, prev = calculateSafety(G, start, target)
+  \li 
+  \li S = new Sequence()
+  \li u = target
+  \li \If prev[u] is defined or u == source:
+  \Then
+    \li // build up path from target back to start
+    \li \While u is defined:
+    \Then
+      \li prepend S with u
+      \li u = prev[u]
+    \End
+  \End
+
+\end{codebox}
