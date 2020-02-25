@@ -12,4 +12,4 @@
 \li \Return G
 \end{codebox}
 
-Because line 3 has complexity $O(E)$, and is in an inner loop that iterates over all of $E$, then it has overall time-complexity of $O(E^{2})$. The initial sort can be ignored because $E \lg E \in O(E^{2})$
+Line 3 has complexity of $O(E)$ with the worse case being a circuluar list. Since to check if $e$ is in the cycle, every node could be iterated over before determining $e$ is in a cycle. Because line 3 has complexity $O(E)$, and is in an inner loop that iterates over all of $E$, then it has overall time-complexity of $O(E^{2})$. The initial sort can be ignored because $E \lg E \in O(E^{2})$

@@ -4,7 +4,7 @@ This problem is a modification of Dijkstra's algorithm. Instead of minimizing di
 
 \subsubsection*{Analysis}
 
-Since this is a variation on Djikstra's, it follows that the complexity analysis follows Djikstra as well. The worst-case time-complexity is $O(V^2)$, for our simple implementation below. There are optimizations that can be done using a Fibonacci heap or binary heap, which can reduce the complexity to $O(|E| + |V| \log |V|)$
+Since this is a variation on Djikstra's, it follows the complexity analysis as well. The worst-case time-complexity is $O(|V|^2)$, for our simple implementation below. There are optimizations that can be done using a Fibonacci heap or binary heap, which can reduce the complexity to $O(|E| + |V| \log |V|)$
 
 \subsubsection*{Pseudocode}
 \begin{codebox}
@@ -22,8 +22,8 @@ Since this is a variation on Djikstra's, it follows that the complexity analysis
 
   \li
   \li // the safest drive is one you never take
-  \li safety[start] = 1 
-  
+  \li safety[start] = 1
+
   \li
   \li \While Q is not empty:
   \Then
@@ -39,24 +39,24 @@ Since this is a variation on Djikstra's, it follows that the complexity analysis
 
     \li \For each neighbor v still in Q of u:
     \Then
-      \li // calculate potential new path safety 
+      \li // calculate potential new path safety
       \li alt = safety[u] * p(u, v)
       \li \If alt $>$ safety[v]:
       \Then
         \li safety[v] = alt
         \li prev[v] = u
       \End
-    \End  
+    \End
   \End
 
   \li return safety[], prev[]
 \End
-\li 
+\li
 
 \li def safestPath(G, start, target):
 \Then
   \li safety, prev = calculateSafety(G, start, target)
-  \li 
+  \li
   \li S = new Sequence()
   \li u = target
   \li \If prev[u] is defined or u == source:
