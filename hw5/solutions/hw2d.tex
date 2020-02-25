@@ -1,1 +1,15 @@
 \subsection*{Solution}
+
+\begin{codebox}
+\li sort the edges according to their weights \ \ \ \ \ \ \ \ \  // $O(E \lg E)$
+\li \For each edge $e \in E$, in decreasing order of $w_e$ \    // $O(E)$
+    \Then
+    \li \If $e$ is part of a cycle of $G$  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \    // $O(E)$ (from 2c)
+        \Then
+        \li $G = G - e$   \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \    // $O(1)$
+        \End
+    \End
+\li \Return G
+\end{codebox}
+
+Because line 3 has complexity $O(E)$, and is in an inner loop that iterates over all of $E$, then it has overall time-complexity of $O(E^{2})$. The initial sort can be ignored because $O(E \lg E) \in O(E^{2})$

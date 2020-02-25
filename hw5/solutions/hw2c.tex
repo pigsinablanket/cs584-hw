@@ -1,1 +1,7 @@
 \subsection*{Solution}
+
+For every iteration, if you have an edge $e$, you can do a DFS over an adjacency list of it's neighboring nodes, starting from one of the nodes of $e$ as the root, and following the other node as the first child.
+
+If, during this DFS, you run into a visited node that isn't the parent node from the last recursion, then that visited node must be part of a cycle. If we check the visited node is the same as the root of our "tree", then we know that the edge $e$ is definitely within the cycle we found.
+
+The DFS of has a time complexity of $O(E+V)$.
