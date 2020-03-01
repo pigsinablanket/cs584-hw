@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumitem,clrscode3e}
+\usepackage[margin=1in]{geometry}
+
+\title{\bf Assignment 6 \\[2ex]
+\rm\normalsize Due: March 3, 2020}
+\date{}
+\author{
+  Kanyid, Bradon\\
+  \texttt{bradon.kanyid@pdx.edu}
+  \and
+  Reimer, Daniel\\
+  \texttt{daniel.reimer@pdx.edu}
+}
+\begin{document}
+\maketitle
+
+\begin{center}
+    \fbox{\fbox{\parbox{\textwidth}{\centering
+    Your solutions must be typed (preferably typeset in \LaTeX ) and submitted as a hard-copy at the beginning of
+    class on the day its due.
+    \\
+
+    When asked to provide an algorithm you need to give well formatted pseudocode, a description of how your
+    code solves the problem, and a brief argument of its correctness.
+    }}}
+\end{center}
+
+\paragraph{Problem 1: Longest-Probe Bound for Hashing}
+Suppose we use an open-addressed hash table (section 11.4 in CLRS) of size $m$ to store $n \leq \frac m2$ items.
+
+\subparagraph{(a) [10 points]}
+Assuming simple uniform hashing, show that for $i = 1,2,...,n$, the probability is at most $2^{-k}$ that the $i$th
+insertion requires strictly more than $k$ probes.
+
+\input{solutions/sol1a}
+
+\subparagraph{(b) [10 points]}
+Assuming simple uniform hashing, show that for $i = 1,2,...,n$, the probability is $O(\frac 1{n^2})$ that the
+$i$th insertion requires more than $2 \lg n$ probes.
+
+\input{solutions/sol1b}
+
+\paragraph{Problem 2: Building a Queue using Stacks}
+It is possible to build a {\em queue} (FIFO) using two stacks. Assume that the stacks have three operations, {\em push}, {\em pop}, and {\em isEmpty}, each with cost 1. A queue can be implemented as follows:
+\begin{itemize}
+\item {\em enqueue:} push item $x$ onto stack 1
+\item {\em dequeue:} if stack 2 is empty then pop the entire contents of stack 1 pushing each element in turn onto stack 2. Now pop from stack 2 and return the result.
+\end{itemize}
+A conventional worst-case analysis would establish that {\em dequeue} takes $O(n)$ time, but this is clearly a weak bound for a sequence of operations, because very few dequeues will actually take that long. To simplify your analysis only consider the cost of the push and pop operations.
+
+\subparagraph{(a) [10 points]}
+Using the aggregate method show that the amortized cost of each {\em enqueue} and {\em dequeue} is constant.
+
+\input{solutions/sol2a}
+
+\subparagraph{(b) [10 points]}
+Using the accounting method show that the amortized cost of each {\em enqueue} and {\em dequeue} is constant.
+
+\input{solutions/sol2b}
+
+\subparagraph{(c) [10 points]}
+Using the potential method show that the amortized cost of each {\em enqueue} and {\em dequeue} is constant.
+
+\input{solutions/sol2c}
+
+\end{document}
