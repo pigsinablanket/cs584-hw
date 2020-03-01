@@ -1,1 +1,5 @@
 \subsection*{Solution}
+
+With uniform hashing, the likelihood for any insertion to have a colision is n/m. We eknow that our open-addressed has table has n < m/2, so the load factor is known to be strictly < 1/2. 
+
+The probability of neding more than k probes will be some value (1/2)*(1/2)*...*(1/2) for k times, or (1/2)^k. So (n/m)^k < (1/2) ^k = 2^-k

@@ -1,1 +1,21 @@
 \subsection*{Solution}
+
+We are given the actual costs of the three operations, push, pop, and isEmpty, each with cost 1.
+
+We will define the enqueue operation an amortized cost of 4, and the dequeue operation an amortized cost of 1.
+
+Enqueue a thing: 
+costs 1 push, so has 3 credit
+Dequeue a thing, nothing on stack 2:
+  costs:
+  1 isEmpty (regardless)
+  1 pop from stack 1
+  1 push to stack 2
+  1 pop from stack 2
+
+total cost is 4 for the operations, with dequeue paying for isEmpty itself, and the other 3 coming from the 3 credit left over from enqueue
+
+Dequeue a thing, something on stack 2:
+  costs:
+  1 isEmpty (regardless)
+  1 pop from stack 2

@@ -1,1 +1,34 @@
 \subsection*{Solution}
+
+For any item in the first stack, there's a pop, push, and pop left for it
+for any item in the second stack, there's just a pop left.
+so if we have j items in stack 1 and k items in stack 2, a reasonable potential would be 4j + 2k
+
+enqueueing thus increases the potential by 4
+dequeueing if isEmpty is false is -2
+dequeueing if isEmpty is true is -4j-2
+
+So the basic idea for amortized analysis now that we have a potential function is that the amortized cost of an operation is cost of operation + potential after operation - potential before operation
+Which is just a theorem you get to use
+the cost of a dequeue if isEmpty is false is 1 for isEmpty and 1 for pop, so 2
+cost of operation + potential after operation - potential before operation == cost of operation + delta in potential
+and the change in potential when isEmpty is false is -2, as we established earlier
+
+2 + -2 = 0, so the amortized cost of a dequeue is nothing if isEmpty is false
+
+if isEmpty is true, then the cost is 1 + 2j + 1 
+2j because j pops from stack 1, j pushes to stack 2
+isempty + j pop/pushes + last pop
+
+and that reduces the potential by 4j from stack one, but increases it by 2j in stack 2
+but then decreases it by 2 with the removal of the item
+which is a net delta in potential of -2j-2
+2j+2-2j-2 = 0
+So the amortized cost in that case is also 0
+
+enqueue costs 1 push to perform
+and increases potential by 4
+and thus has an amortized cost of 5
+which is constant
+0 is O(1), 5 is O(1), everything here is amortized O(1)
+
