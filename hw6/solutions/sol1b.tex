@@ -1,12 +1,11 @@
 \subsection*{Solution}
 
-Under the assumption of uniform hashing, the likelihood for any insertion to have a colision is $n/m$ where $n$ is the number of probes is $m$ is the size. We know that our open-addressed table has $n < m/2$, so the load factor is known to be strictly $< 1/2$.
+Under the assumption of uniform hashing, the likelihood for any insertion to have a colision is $n/m$ where $n$ is the number of probes is $m$ is the size. We know that our open-addressed table has $n < m/2$, so the load factor is known to be strictly $< 1/2$. Similar to 1a, a probe that takes more than $2 \lg n$ probes means $(1/2) * (1/2) * ... * (1/2)$ for $2 \ln n$ times, or stated another way, $(1/2)^{2 \lg n}$ times.
 
 \begin{align*}
-  2 lg n &== (1/2)^{(2 lg n)} \\
-         &== 2^{(-2 lg n)} \\
-         &== 1/{(2^{lg n})^2} \\
-         &== 1/n^2 \\
+(1/2)^{(2 \lg n)} &== 2^{(-2 \lg n)} \\
+                 &== 1/{(2^{\lg n})^2} \\
+                 &== 1/n^2 \\
 \end{align*}
 
-Therefore the probability of needing more than $2lg(n)$ probes will be $1/n^2$.
+Therefore the probability of needing more than $2 \lg(n)$ probes will be $1/n^2$.
