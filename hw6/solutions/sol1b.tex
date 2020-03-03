@@ -1,6 +1,11 @@
 \subsection*{Solution}
 
-k == (1/2)^k
-2 lg n == (1/2)^(2 lg n)
+Under the assumption of uniform hashing, the likelihood for any insertion to have a colision is $n/m$ where $n$ is the number of probes is $m$ is the size. We know that our open-addressed table has $n < m/2$, so the load factor is known to be strictly $< 1/2$.
 
-https://www.wolframalpha.com/input/?i=%281%2F2%29%5E%282+log_2%28n%29%29
+\begin{align*}
+     k &== (1/2)^k \\
+2 lg n &== (1/2)^{(2 lg n)} \\
+       &== 1/n^2 \\
+\end{align*}
+
+Therefore the probability of needing more than $k$ probes will be $1/n^2$.
