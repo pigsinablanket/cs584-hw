@@ -1,1 +1,41 @@
 \subsection*{Solution}
+
+We are given the actual costs of the three operations, push, pop, and isEmpty, each with cost 1. We will define our own amortized costs for the larger operations: 
+\begin{itemize}
+\item {\em Enqueue:} amortized cost of 4
+\item {\em Dequeue:} amortized cost of 1
+\end{itemize}
+
+As in 2a, there's 3 meta-operations that can happen:
+\begin{itemize}
+\item {\em Enqueue} 
+\item {\em Dequeue (Empty Stack 2)} 
+\item {\em Dequeue (Non-Empty Stack 2)} 
+\end{itemize}
+
+Let's break down the cost of each operation.
+
+\subsubsection*{\em Enqueue:} 
+\begin{itemize}
+\item 1 push to stack 1
+\end{itemize}
+
+An enqueue uses 1 credit of the 4 credits it is given, leaving 3 credits remaining.
+
+\subsubsection*{\em Dequeue (Empty Stack 2):}
+\begin{itemize}
+\item 1 isEmpty (paid by the item being dequeued)
+\item 1 pop from stack 1 (paid by every item on stack 1)
+\item 1 push to stack 2 (paid by every item on stack 1)
+\item 1 pop from stack 2 (paid by the item being dequeued)
+\end{itemize}
+
+The cost per item is 2 for every item moving from stack 1 to stack 2, leaving a credit of 2 for those items. The item destined to be dequeued has also paid for the isEmpty operation, as well as the cost of the pop from stack 2. The final result is that stack 1 is empty, and the remaining items on stack 2 have a credit of 2, which brings us to the last case...
+
+\subsubsection*{\em Dequeue (Non-Empty Stack 2):}
+\begin{itemize}
+\item 1 isEmpty 
+\item 1 pop from stack 2
+\end{itemize}
+
+A non-empty stack 2 will quickly remove the top item from stack 2, and that item pays its two remainig credits for the two operations.

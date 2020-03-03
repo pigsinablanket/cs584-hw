@@ -1,1 +1,43 @@
 \subsection*{Solution}
+This solution follows much of the intuition of the accounting method. However, instead of each item keeping its own credits, we come up with an equation that describes the system's overall credit.
+
+Instead of having an item credit of 4, enqueuing increases the potential of the system by 4, for example. That's enough credit to maintain the lifetime operations that any item goes through: pop from stack 1, push to stack 2, pop from stack 2, and isEmpty check concurrent with pop from stack 2.
+
+You can describe the potential function as $p(j,k) = 4j + 2k$, where $j$ is the number of items on stack 1, and $k$ is the number of items on stack 2.
+
+Based on this potential function, the effect of any meta-operation is:
+\begin{itemize}
+\item {\em Enqueue:} potential augmented by 4 
+\item {\em Dequeue (Empty Stack 2):} potential augmented by -2j-2
+\item {\em Dequeue (Non-Empty Stack 2):} potential augmented by -2
+\end{itemize}
+
+\subsubsection*{\em Enqueue:} 
+\begin{itemize}
+\item 1 push to stack 1
+\end{itemize}
+
+An enqueue costs 1 push to perform, and increases potential by 4, and so has an amortized cost of 5, which is constant $O(1)$
+
+\subsubsection*{\em Dequeue (Empty Stack 2):}
+\begin{itemize}
+\item 1 isEmpty 
+\item $j$ pops from stack 1
+\item $j$ pushes to stack 2 
+\item 1 pop from stack 2
+\end{itemize}
+
+If the dequeue happens when the stack is empty, you pay the operation cost of $1 + 2j + 1$. The amortized cost of this operation is $0$, because it changes the potential by $-2j - 2$. This is because you decreased potential by 4 for every item you removed from stack 1, but increased potential by 2 for every item you added to stack 2, and also descreased overall potential by 2 for the actual dequeue pop from stack 2 and the isEmpty operation.
+
+The potential function shows that potential changes by $-2j - 2$, and we also showed there are $2j + 2$ operations done in a dequeue with an empty stack. So the amortized cost of the operation is $1 + 2j + 1 - 2j - 2 == 0 \in O(1)$
+
+\subsubsection*{\em Dequeue (Non-Empty Stack 2):}
+\begin{itemize}
+\item 1 isEmpty 
+\item 1 pop from stack 2
+\end{itemize}
+
+The potential function shows that one item is removed from stack 2, so k decreases by 1, for an overall potential change of -2. There are 2 operations done in a dequeue with a non-empty stack. So the amortized cost is $2 + -2 == 0 \in O(1)$
+
+\subsubsection*{\em Overall:}
+All operations are amortized to $O(1)$.
