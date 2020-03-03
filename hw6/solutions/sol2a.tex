@@ -1,10 +1,12 @@
 \subsection*{Solution}
 
-Even though a single dequeue operation can be quite expensive (in the case where many enqueues have happened in a row without a dequeue), any sequence of n enqueue and dequeue operations on an initially empty pair of stacks can cost at most O(n). 
+Even though a single dequeue operation can be quite expensive (in the case where many enqueues have happened in a row without a dequeue), any sequence of n enqueue and dequeue operations on an initially empty pair of stacks can cost at most $O(n)$. 
 
 Enqueue is constant work, always pushing one item onto the first stack.
 Dequeue has two paths:
-  If stack 2 is non-empty, the work is constant and pops one element from the second stack.
-  If stack 2 is empty, there are n pops and pushs from stack 1 to stack 2, where n is the number of elements on stack 1 prior to the operation.
+\begin{itemize}
+\item If stack 2 is non-empty, the work is constant and pops one element from the second stack.
+\item If stack 2 is empty, there are n pops and pushs from stack 1 to stack 2, where n is the number of elements on stack 1 prior to the operation.
+\end{itemize}
 
-We can dequeue each object from the stack at most once for each time we have enqueued it onto the stack. Therefore, the number of times that dequeue can be called on a nonempty stack is at most the number of enqueue operations, which is at most n. For any value of n, any sequence of n enqueue and dequeue operations takes a total of O(n) time. The average cost of an operation is O(n)/n = O(1).
+We can dequeue each object from the stack at most once for each time we have enqueued it onto the stack. Therefore, the number of times that dequeue can be called on a nonempty stack is at most the number of enqueue operations, which is at most n. For any value of n, any sequence of n enqueue and dequeue operations takes a total of $O(n)$ time. The average cost of an operation is $O(n)/n == O(1)$.
