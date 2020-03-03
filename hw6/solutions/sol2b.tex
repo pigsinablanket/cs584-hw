@@ -2,7 +2,7 @@
 
 We are given the actual costs of the three operations, push, pop, and isEmpty, each with cost 1. We will define our own amortized costs for the larger operations: 
 \begin{itemize}
-\item {\em Enqueue:} amortized cost of 4
+\item {\em Enqueue:} amortized cost of 5
 \item {\em Dequeue:} amortized cost of 1
 \end{itemize}
 
@@ -20,7 +20,7 @@ Let's break down the cost of each operation.
 \item 1 push to stack 1
 \end{itemize}
 
-An enqueue uses 1 credit of the 4 credits it is given, leaving 3 credits remaining.
+An enqueue uses 1 credit of the 5 credits it is given, leaving 4 credits remaining.
 
 \subsubsection*{\em Dequeue (Empty Stack 2):}
 \begin{itemize}
@@ -39,3 +39,6 @@ The cost per item is 2 for every item moving from stack 1 to stack 2, leaving a 
 \end{itemize}
 
 A non-empty stack 2 will quickly remove the top item from stack 2, and that item pays its two remainig credits for the two operations.
+
+\subsubsection*{\em Overall}
+The general idea here is that every item enqueued will go through 4 more operations to be dequeued. At some point, it will be popped from stack 1, pushed to stack 2, popped from stack 2, and be the item that required an isEmpty operation. Therefore overall, the amortized cost is $5 \in O(1)$.
