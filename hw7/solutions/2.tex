@@ -1,3 +1,23 @@
 \subsection*{Solution}
 
-The vertex cover is a known NP-Complete problem. Therefore, reducing this problem into the firehouses problem shows that it is NP-Complete.
+To make the problem more tractable, let's be clear on definitions:
+
+G = (V, E)
+
+V makes up locations in general, including potential locations of firehouses. Assume unselected vertices are houses being covered. Selected vertices are replaced with firehouses.
+
+E makes up the distances between vertices, i.e. locations. 
+
+f = $|F|$ where $F \subseteq V$, i.e. where firehouses will be placed.
+
+\subsubsection*{NP-Completeness}
+
+This problem is NP-Complete because we can verify answers easily, in polynomial time. Look at each vertex in F, and mark each vertex you can get to in d distance or less. Afterwards, there should be no unmarked vertices in G. If this is the case, then you have a solution that meets the criteria.
+
+\subsubsection*{Reduction}
+
+You can reduce Set-Cover to the Firehouses problem as follows:
+
+$\forall v \in V$, do a DFS and collect all the vertices on the way where the total edge distance $< = d$. Those vertices make up $S_i$, a subset of the total set space. We know that $\cup S_i = V$, as each subset contains it's starting vertex, from $V$. Each subset is "centered" around it's origin vertex and the vertices it can reach. Note that subsets definitely will overlap. We also keep a dictionary mapping each subset to its origin vertex.
+
+With these $|V|$ subsets, we can now put them through set-cover, with minimum size subset $|C| = f$. If we find a solution that fits these requirements, we can get the original vertices back by using the constructed dictionary, thus leaving us with the locations of the firehouses.
