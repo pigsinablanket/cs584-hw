@@ -1,0 +1,16 @@
+\subsection*{Solution}
+
+We can see that partition is polynomial time since summing $A$ and $A'$ can be both done in $O(n)$ and then comparing the sums together is constant time.
+
+Recalling from SubsetSum, given a set $S$ of positive integers and a target integer $s(a)$, find a subset $A$ of $S$ that sums to $t$. If $s$ is the sum of member of $A$, then $X'=X \cup {s - 2(s(a))}$ where $s = \sum_{a \in A} x$
+
+Assume there exists some $S \subset A$ such that $t = \sum_{a \in A} a$.
+
+\begin{align*}
+s - t &= \sum_{a \in A \cup {s-2s(a)}} a \\
+s - t &= \sum_{a \in A \cup X'\\{s-2s(a)}} a \\
+\end{align*}
+
+Therefore $S \cup {s - 2s(a)}$ and $X'\\(S \cup) {s - 2s(a)}$ form a partition $A'$.
+
+Suppose $A'$ is partitioned into $P_1'$ and $P_2'$, then there is a sublist $A$ that $ {s-2s(a)} \in \sum_{a \in P_1'} a = \sum_{a \in P_2'} a$. Therefore, ${s-2s(a)} \notin \sum_{a \in P_1'} a = s(a)$. Since $P_1$ is in $A'$, all the numbers summed to $s(a)$ are in $A$. The SubsetSum is a known NP-Complete problem. Therefore, reducing this problem into partitioning shows that partitioning is NP-Complete.

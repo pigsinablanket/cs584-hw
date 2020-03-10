@@ -1,0 +1,40 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumitem,clrscode3e}
+%\usepackage[margin=1in]{geometry}
+
+\title{\bf Assignment 7 \\[2ex]
+\rm\normalsize Due: March 10, 2020}
+\date{}
+\author{
+  Kanyid, Bradon\\
+  \texttt{bradon.kanyid@pdx.edu}
+  \and
+  Reimer, Daniel\\
+  \texttt{daniel.reimer@pdx.edu}
+}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+    \fbox{\fbox{\parbox{\textwidth}{\centering
+    Your solutions must be typed (preferably typeset in \LaTeX) and submitted as a hard-copy at the beginning of
+    class on the day its due.
+    }}}
+\end{center}
+
+\paragraph{Problem 1: Partition [10 points]}
+Show that the following problem is NP-Complete (Hint: reduce from SubsetSum).
+\subparagraph{PARTITION:} Given a finite set $A$ and a positive integer $s(a)$ associated with each $a \in A$, is there a subset $A' \subseteq A$ such that $\sum_{a \in A'} s(a) = \sum_{a \in A-A'} s(a)$?
+
+\input{solutions/1}
+
+\paragraph{Problem 2: Fire Houses [10 points]}
+Show that the following problem is NP-Complete (Hint: reduce from 3-SAT or Vertex Cover).
+\subparagraph{FIREHOUSES:} Given an undirected graph $G$ with positive integer distances on the edges, and
+two integers $f$ and $d$, is there a way to select $f$ vertices on $G$ on which to locate firehouses, so that
+no vertex of $G$ is at distance more than $d$ from a firehouse?
+
+\input{solutions/2}
+
+\end{document}
